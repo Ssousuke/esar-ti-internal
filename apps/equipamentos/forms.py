@@ -1,17 +1,21 @@
 from django import forms
 from django.forms import ModelForm
-from apps.equipamentos.models import TypeEquipment, Equipments
-
-
-class TypeEquipmentForm(ModelForm):
-    class Meta:
-        model = TypeEquipment
-        fields = '__all__'
-        # widgets
+from apps.equipamentos.models import Equipments
 
 
 class EquipmentForm(ModelForm):
     class Meta:
         model = Equipments
         fields = '__all__'
-        # widgets
+        widgets = {
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            ),
+            'type': forms.Select(
+                attrs={
+                    'class': 'form-control'
+                }
+            ),
+        }

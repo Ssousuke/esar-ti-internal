@@ -1,18 +1,19 @@
 from django.db import models
 
 
-class TypeEquipment(models.Model):
-    type = models.CharField(max_length=80)
-
-    def __str__(self):
-        return self.type
-
-
 class Equipments(models.Model):
-    name = models.CharField(max_length=255)
-    type = models.ForeignKey(TypeEquipment, on_delete=models.CASCADE)
-    status = models.BooleanField(default=True)
-    maintenance = models.BooleanField(default=False)
+    TYPE_EQUIPMENT_CHOICES = (
+        ('Notebook', 'Notebook'),
+        ('Computador', 'Computador'),
+        ('Impressora', 'Impressora'),
+        ('Roteador', 'Roteador'),
+        ('Outros', 'Outros'),
+    )
+
+    name = models.CharField(max_length=255, verbose_name='Nome')
+    type = models.CharField(max_length=10, choices=TYPE_EQUIPMENT_CHOICES, verbose_name='Tipo')
+    status = models.BooleanField(default=True, verbose_name='Disponível')
+    maintenance = models.BooleanField(default=False, verbose_name='Manutenção')
 
     def __str__(self):
         return self.name
