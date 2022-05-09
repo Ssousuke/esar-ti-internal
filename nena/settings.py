@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # My apss
     'apps.equipamentos.apps.EquipamentosConfig',
+    'apps.rede.apps.RedeConfig',
 ]
 
 MIDDLEWARE = [
