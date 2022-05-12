@@ -13,7 +13,6 @@ class Equipments(models.Model):
     name = models.CharField(max_length=255, verbose_name='Nome')
     type = models.CharField(max_length=10, choices=TYPE_EQUIPMENT_CHOICES, verbose_name='Tipo')
     status = models.BooleanField(default=True, verbose_name='Disponível')
-    maintenance = models.BooleanField(default=True, verbose_name='Manutenção')
 
     def __str__(self):
         return self.name

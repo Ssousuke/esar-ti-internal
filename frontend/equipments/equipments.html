@@ -20,7 +20,6 @@
                     <th>Name</th>
                     <th>Tipo</th>
                     <th>Disponível</th>
-                    <th>Manutenção</th>
                     <th>Ação</th>
                 </tr>
                 </thead>
@@ -29,17 +28,10 @@
                     <td>{{ equipment.name }}</td>
                     <td>{{ equipment.type }}</td>
                     <td>
-                        {% if equipment.maintenance %}
-                        Disponível
+                        {% if equipment.status %}
+                        Sim
                         {% else %}
-                        Indisponível
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if equipment.maintenance %}
-                        Em dias
-                        {% else %}
-                        Pendente
+                        Não
                         {% endif %}
                     </td>
                     <td class="text-center">
