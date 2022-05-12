@@ -1,16 +1,16 @@
 {% extends 'base.html'%}
 {% block content %}
-<h1 class="h3 text-gray-800"><i class="fas fa-desktop"></i> Equipamentos</h1>
+<h1 class="h3 text-gray-800"><i class="fas fa-network-wired"></i> Equipamentos em rede</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow">
     <div class="card-header">
-        <h6 class="m-0 font-weight-bold text-primary">Quantidade: {{count_equipment}}</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Quantidade: {{networks_count}}</h6>
     </div>
-    {% if equipments %}
+    {% if networks %}
     <div class="card-body">
         <div class="m-1">
-            <a href="{% url 'equipments:create_equipment' %}" type="button" class="btn btn-primary">
+            <a href="{% url 'network:create_network' %}" type="button" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Cadastrar</a>
         </div>
         <div class="table-responsive">
@@ -24,21 +24,15 @@
                     <th>Ação</th>
                 </tr>
                 </thead>
-                {% for equipment in equipments%}
+                {% for network in networks %}
                 <tr>
-                    <td>{{ equipment.id }}</td>
-                    <td>{{ equipment.name }}</td>
-                    <td>{{ equipment.type }}</td>
-                    <td>
-                        {% if equipment.status %}
-                        Sim
-                        {% else %}
-                        Não
-                        {% endif %}
-                    </td>
+                    <td>{{ network.id }}</td>
+                    <td>{{ network.ipv4_or_ipv6 }}</td>
+                    <td>{{ network.equipment }}</td>
+                    <td>{{ network.department }}</td>
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="">
-                            <a href="{% url 'equipments:edit_equipment' equipment.pk %}" type="button"
+                            <a href="{% url 'network:edit_network' network.pk %}" type="button"
                                class="btn btn-primary"><i class="fas fa-edit"></i></a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -58,12 +52,12 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Você tem certeza que deseja deletar o item: {{ equipment.name }}
+                                            Você tem certeza que deseja deletar o item: {{ network.equipment }}, {{ network.ipv4_or_ipv6 }}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
                                             </button>
-                                            <a href="{% url 'equipments:delete_equipment' equipment.pk %}" type="button"
+                                            <a href="{% url 'network:delete_network' network.pk %}" type="button"
                                                class="btn btn-danger">Confirmar</a>
                                         </div>
                                     </div>
@@ -79,7 +73,7 @@
     </div>
     {% else %}
     <div class="mx-auto m-2">
-        <a href="{% url 'equipments:create_equipment' %}" type="button" class="btn btn-primary">
+        <a href="{% url 'network:create_network' %}" type="button" class="btn btn-primary">
             <i class="fas fa-plus"></i> Cadastrar</a>
     </div>
     {% endif %}

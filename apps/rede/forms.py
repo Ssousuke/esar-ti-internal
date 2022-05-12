@@ -7,4 +7,20 @@ class NetworkForm(ModelForm):
     class Meta:
         model = Networks
         fields = '__all__'
-        # widgets
+        widgets = {
+            'ipv4_or_ipv6': forms.TextInput(
+                attrs={
+                    'class': 'form-control m-1'
+                }
+            ),
+            'equipment': forms.Select(
+                attrs={
+                    'class': 'form-control m-1'
+                }
+            ),
+            'department': forms.TextInput(
+                attrs={
+                    'class': 'form-control m-1'
+                }
+            ),
+        }

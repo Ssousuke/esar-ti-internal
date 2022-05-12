@@ -12,7 +12,8 @@ from apps.rede.models import Networks
 def network_list(request):
     template_name = 'networks/networks.html'
     networks = Networks.objects.all()
-    return render(request, template_name, {'networks': networks})
+    networks_count = Networks.objects.all().count()
+    return render(request, template_name, {'networks': networks, 'networks_count': networks_count})
 
 
 class CreateNetwork(CreateView, LoginRequiredMixin):
