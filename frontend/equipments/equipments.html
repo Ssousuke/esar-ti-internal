@@ -39,20 +39,22 @@
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="">
                             <a href="{% url 'equipments:edit_equipment' equipment.pk %}" type="button"
-                               class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                               class="btn btn-primary"><i class="fas fa-edit"></i>
+                            </a>
+
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#staticBackdrop">
+                                    data-target="#staticBackdrop{{equipment.id}}">
                                 <i class="fas fa-trash"></i>
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
-                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop{{equipment.id}}" data-backdrop="static" data-keyboard="false"
+                                 tabindex="-1" aria-labelledby="staticBackdropLabel{{equipment.id}}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Alerta!</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel{{equipment.id}}">Alerta!</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -61,10 +63,12 @@
                                             Você tem certeza que deseja deletar o item: {{ equipment.name }}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Fechar
                                             </button>
-                                            <a href="{% url 'equipments:delete_equipment' equipment.pk %}" type="button"
-                                               class="btn btn-danger">Confirmar</a>
+                                            <a href="{% url 'equipments:delete_equipment' equipment.pk %}"
+                                               type="button" class="btn btn-danger">Confirmar
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +77,6 @@
                     </td>
                 </tr>
                 {% endfor %}
-                </tbody>
             </table>
         </div>
     </div>
