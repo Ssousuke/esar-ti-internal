@@ -8,7 +8,7 @@ class NetworkForm(ModelForm):
         model = Networks
         fields = '__all__'
         widgets = {
-            'ipv4_or_ipv6': forms.TextInput(
+            'department': forms.TextInput(
                 attrs={
                     'class': 'form-control m-1'
                 }
@@ -18,7 +18,7 @@ class NetworkForm(ModelForm):
                     'class': 'form-control m-1'
                 }
             ),
-            'department': forms.TextInput(
+            'ipv4_or_ipv6': forms.TextInput(
                 attrs={
                     'class': 'form-control m-1'
                 }
