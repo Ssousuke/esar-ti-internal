@@ -10,7 +10,7 @@ from apps.equipamentos.forms import EquipmentForm
 @login_required
 def list_equipments(request):
     template_name = 'equipments/equipments.html'
-    equipments = Equipments.objects.filter(status=True)
+    equipments = Equipments.objects.all()
     return render(request, template_name, {'equipments': equipments, 'count_equipment': equipments.count()})
 
 
@@ -20,12 +20,20 @@ class CreateEquipment(CreateView, LoginRequiredMixin):
     form_class = EquipmentForm
     success_url = reverse_lazy('equipments:list')
 
+    def form_valid(self, form):
+        form.save()
+        return super(CreateEquipment, self).form_valid(form)
+
 
 class EditEquipment(UpdateView, LoginRequiredMixin):
     template_name = 'equipments/equipments_form.html'
     model = Equipments
     form_class = EquipmentForm
     success_url = reverse_lazy('equipments:list')
+
+    def form_valid(self, form):
+        form.save()
+        return super(EditEquipment, self).form_valid(form)
 
 
 @login_required
