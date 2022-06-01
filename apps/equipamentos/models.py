@@ -11,7 +11,7 @@ class Equipments(models.Model):
         ('Outros', 'Outros'),
     )
     # nome do equipamento
-    name = models.CharField(max_length=255, verbose_name='Nome')
+    name = models.CharField(max_length=70, verbose_name='Nome')
     # tipo do equipamento
     type = models.CharField(max_length=10, choices=TYPE_EQUIPMENT_CHOICES, verbose_name='Tipo')
     # status do equipamento
