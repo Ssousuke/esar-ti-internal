@@ -4,7 +4,7 @@
     {% include 'includes/_head.html' %}
     <title>{% block title %} MRD - V.0.0.1 {% endblock title %}</title>
 </head>
-<body class="bg-gradient-dark">
+<body class="bg-gradient-primary">
 <div class="container">
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div class="col-lg-6 d-none d-lg-block">
-                            <img src="https://ignatius500.org/templates/ignatius/images/ojo.png"
+                            <img src="https://www.freepngimg.com/download/technology/75322-things-of-euclidean-vector-internet-technology-icon.png"
                                  class="w-100">
                         </div>
                         <div class="col-lg-6">
@@ -24,11 +24,13 @@
                                 </div>
                                 <form method="POST" class="user" action="{% url 'accounts:login' %}">
                                     {% csrf_token %}
-                                    <ul>
-                                        {% if form.errors %}
-                                            <li>Verifique se seu email ou senha estão corretos.</li>
-                                        {% endif %}
-                                    </ul>
+                                    {% if form.errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            <ul>
+                                                Email ou senha incorretos
+                                            </ul>
+                                        </div>
+                                    {% endif %}
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                                id="email" aria-describedby="email" name="username"
@@ -38,7 +40,7 @@
                                         <input type="password" class="form-control form-control-user" name="password"
                                                id="password" placeholder="Senha...">
                                     </div>
-                                    <button type="submit" class="btn btn-dark btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </button>
                                     <hr>
