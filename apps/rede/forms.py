@@ -8,17 +8,22 @@ class NetworkForm(ModelForm):
         model = Networks
         fields = '__all__'
         widgets = {
-            'department': forms.TextInput(
+            'department': forms.Select(
                 attrs={
                     'class': 'form-control m-1'
                 }
             ),
-            'equipment': forms.Select(
+            'equipment': forms.TextInput(
                 attrs={
                     'class': 'form-control m-1'
                 }
             ),
             'ipv4_or_ipv6': forms.TextInput(
+                attrs={
+                    'class': 'form-control m-1'
+                }
+            ),
+            'type': forms.Select(
                 attrs={
                     'class': 'form-control m-1'
                 }

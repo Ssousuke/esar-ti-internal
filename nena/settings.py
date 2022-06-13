@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # My apss
-    'apps.equipamentos.apps.EquipamentosConfig',
     'apps.rede.apps.RedeConfig',
     'apps.accounts.apps.AccountsConfig',
 ]
