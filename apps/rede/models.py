@@ -21,7 +21,7 @@ class Networks(models.Model):
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Setor')
 
     # equipamento é uma charfield unico
-    equipment = models.CharField(max_length=100, null=True, blank=True, unique=True, verbose_name='Equipamento')
+    equipment = models.CharField(max_length=100, null=True, blank=True, verbose_name='Equipamento')
     # ipv4 ou ipv6
     ipv4_or_ipv6 = models.GenericIPAddressField(unique=True, verbose_name='IPv4 / IPv6')
 
@@ -32,4 +32,4 @@ class Networks(models.Model):
         return self.ipv4_or_ipv6
 
     class Meta:
-        ordering = ['-ipv4_or_ipv6']
+        ordering = ['ipv4_or_ipv6']
