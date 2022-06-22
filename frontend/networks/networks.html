@@ -20,18 +20,20 @@
                 <thead>
                 <tr class="text-center">
                     <th>Id</th>
+                    <th>Setor</th>
                     <th>IP</th>
                     <th>Host</th>
-                    <th>Setor</th>
+                    <th>Status</th>
                     <th>Ação</th>
                 </tr>
                 </thead>
                 {% for network in networks %}
                 <tr>
                     <td>{{ network.id }}</td>
+                    <td>{{ network.department }}</td>
                     <td>{{ network.ipv4_or_ipv6 }}</td>
                     <td>{{ network.equipment }}</td>
-                    <td>{{ network.department }}</td>
+                    <td>{% if network.status %} Ativo {% else %} Inativo {% endif %}</td>
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="">
                             <a href="{% url 'network:edit_network' network.pk %}" type="button"
