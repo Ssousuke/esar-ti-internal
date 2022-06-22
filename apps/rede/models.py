@@ -34,4 +34,4 @@ class Networks(models.Model):
         return self.ipv4_or_ipv6
 
     class Meta:
-        ordering = ['ipv4_or_ipv6']
+        ordering = ['department']
