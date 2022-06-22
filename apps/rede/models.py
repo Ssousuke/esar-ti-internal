@@ -26,7 +26,9 @@ class Networks(models.Model):
     ipv4_or_ipv6 = models.GenericIPAddressField(unique=True, verbose_name='IPv4 / IPv6')
 
     # tipo de equipamento
-    type = models.CharField(max_length=10, choices=TYPE_EQUIPMENT_CHOICES, verbose_name='Tipo', null=True, blank=True)
+    type = models.CharField(max_length=10, choices=TYPE_EQUIPMENT_CHOICES, null=True, blank=True, verbose_name='Tipo')
+
+    status = models.BooleanField(default=False, verbose_name='Status')
 
     def __str__(self):
         return self.ipv4_or_ipv6
