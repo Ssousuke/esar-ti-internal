@@ -23,6 +23,7 @@
                     <th>Setor</th>
                     <th>IP</th>
                     <th>Host</th>
+                    <th>Tipo</th>
                     <th>Status</th>
                     <th>Ação</th>
                 </tr>
@@ -33,6 +34,7 @@
                     <td>{{ network.department }}</td>
                     <td>{{ network.ipv4_or_ipv6 }}</td>
                     <td>{{ network.equipment }}</td>
+                    <td>{{ network.type }}</td>
                     <td>{% if network.status %} Ativo {% else %} Inativo {% endif %}</td>
                     <td class="text-center">
                         <div class="btn-group" role="group" aria-label="">
